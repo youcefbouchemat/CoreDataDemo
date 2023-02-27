@@ -20,7 +20,8 @@ struct ContentView: View {
     
     @Environment(\.managedObjectContext) private var viewContext;
     
-    @FetchRequest(entity: Product.entity(), sortDescriptors: [])
+    @FetchRequest(entity: Product.entity(), sortDescriptors: [
+    NSSortDescriptor(key: "name", ascending: true)])
     
     private var products: FetchedResults<Product>
     
