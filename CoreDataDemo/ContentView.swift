@@ -57,6 +57,7 @@ struct ContentView: View {
                             Text(product.quantity ?? "Not Found")
                         }
                     }
+                    .onDelete(perform: deleteProduct)
                 }
                 .navigationTitle("Product Database")
             }
@@ -72,6 +73,10 @@ struct ContentView: View {
             product.name = name;
             product.quantity = quantity;
             
+            name = "";
+            quantity = "";
+            focusState = .name
+            
             saveContext()
         }
     }
@@ -79,13 +84,19 @@ struct ContentView: View {
     private func saveContext(){
         do{
             try viewContext.save();
-            name = "";
-            quantity = "";
-            focusState = .name
+            
         }catch{
             let error = error as NSError
             fatalError("An error occured: \(error)")
         }
+    }
+    
+    private func deleteProduct(offsets: IndexSet){
+        withAnimation {
+            offsets.map { products[$0] }.forEach (viewContext.delete)
+            saveContext()
+        }
+        
     }
 }
 
