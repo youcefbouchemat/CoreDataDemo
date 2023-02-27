@@ -43,6 +43,12 @@ struct ContentView: View {
                     }
                     Spacer()
                     
+                    NavigationLink(destination: ResultsView(name: name, viewContext: viewContext)) {
+                        Text("Search")
+                    }
+
+                    Spacer()
+                    
                     Button("Clear"){
                         name = "";
                         quantity = "";

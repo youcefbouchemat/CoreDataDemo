@@ -13,6 +13,7 @@
 		18CD1C8429AD1C8D0071C15A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CD1C8329AD1C8D0071C15A /* Preview Assets.xcassets */; };
 		18CD1C8C29AD21D50071C15A /* Products.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18CD1C8A29AD21D50071C15A /* Products.xcdatamodeld */; };
 		18CD1C8E29AD24FE0071C15A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD1C8D29AD24FE0071C15A /* Persistence.swift */; };
+		18CD1C9029AD42090071C15A /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD1C8F29AD42090071C15A /* ResultsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		18CD1C8329AD1C8D0071C15A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		18CD1C8B29AD21D50071C15A /* Products.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Products.xcdatamodel; sourceTree = "<group>"; };
 		18CD1C8D29AD24FE0071C15A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		18CD1C8F29AD42090071C15A /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				18CD1C8229AD1C8D0071C15A /* Preview Content */,
 				18CD1C8A29AD21D50071C15A /* Products.xcdatamodeld */,
 				18CD1C8D29AD24FE0071C15A /* Persistence.swift */,
+				18CD1C8F29AD42090071C15A /* ResultsView.swift */,
 			);
 			path = CoreDataDemo;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				18CD1C7E29AD1C8C0071C15A /* ContentView.swift in Sources */,
 				18CD1C8E29AD24FE0071C15A /* Persistence.swift in Sources */,
 				18CD1C7C29AD1C8C0071C15A /* CoreDataDemoApp.swift in Sources */,
+				18CD1C9029AD42090071C15A /* ResultsView.swift in Sources */,
 				18CD1C8C29AD21D50071C15A /* Products.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
