@@ -10,8 +10,13 @@ import CoreData
 
 struct ContentView: View {
     
+    enum FocusedField{
+        case name, quantity
+    }
+    
     @State private var name:String = "";
     @State private var quantity:String = "";
+    @FocusState private var focusState:FocusedField?
     
     @Environment(\.managedObjectContext) private var viewContext;
     
@@ -24,7 +29,9 @@ struct ContentView: View {
             VStack {
                 
                 TextField("Product Name", text: $name)
+                    .focused($focusState, equals: .name)
                 TextField("Product Quantity", text: $quantity)
+                    .focused($focusState, equals: .quantity)
                 
                 
                 HStack{
@@ -70,7 +77,10 @@ struct ContentView: View {
     
     private func saveContext(){
         do{
-            try viewContext.save()
+            try viewContext.save();
+            name = "";
+            quantity = "";
+            focusState = .name
         }catch{
             let error = error as NSError
             fatalError("An error occured: \(error)")
