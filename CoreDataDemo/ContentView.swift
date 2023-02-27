@@ -6,8 +6,19 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
+    
+    @State private var name:String = "";
+    @State private var quantity:String = "";
+    
+    @Environment(\.managedObjectContext) private var viewContext;
+    
+    @FetchRequest(entity: Product.entity(), sortDescriptors: [])
+    
+    private var products: FetchedResults<Product>
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
