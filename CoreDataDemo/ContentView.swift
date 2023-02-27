@@ -20,13 +20,61 @@ struct ContentView: View {
     private var products: FetchedResults<Product>
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                
+                TextField("Product Name", text: $name)
+                TextField("Product Quantity", text: $quantity)
+                
+                
+                HStack{
+                    Spacer()
+                    
+                    Button("Add"){
+                        addProduct();
+                    }
+                    Spacer()
+                    
+                    Button("Clear"){
+                        name = "";
+                        quantity = "";
+                    }
+                    Spacer()
+                }
+                List {
+                    ForEach(products) { product in
+                        HStack{
+                            Text(product.name ?? "Not Found")
+                            Spacer()
+                            Text(product.quantity ?? "Not Found")
+                        }
+                    }
+                }
+                .navigationTitle("Product Database")
+            }
+            .padding()
+            .textFieldStyle(.roundedBorder)
         }
-        .padding()
+    }
+    
+    private func addProduct(){
+        withAnimation {
+            let product = Product(context: viewContext);
+            
+            product.name = name;
+            product.quantity = quantity;
+            
+            saveContext()
+        }
+    }
+    
+    private func saveContext(){
+        do{
+            try viewContext.save()
+        }catch{
+            let error = error as NSError
+            fatalError("An error occured: \(error)")
+        }
     }
 }
 
